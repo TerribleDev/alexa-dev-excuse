@@ -9,6 +9,9 @@ class CustomHandler < AlexaSkillsRuby::Handler
   on_intent("GetDeveloperExcuse") do
     response.set_output_speech_text(get_excuse)
   end
+  on_launch do
+    response.set_output_speech_text(get_excuse)
+  end
 
 end
 get '/livecheck' do
