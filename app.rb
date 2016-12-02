@@ -39,6 +39,13 @@ post '/' do
 end
 
 def get_excuse
+  rando = Random.rand(0..1)
+  if rando == 0
+    url = "http://programmingexcuses.com/"
+  end
+  if rando == 1
+    url = "http://www.devexcuses.com/"
+  end
   page = Nokogiri::HTML(open("http://programmingexcuses.com/"))
   page.css("a").text
 end
