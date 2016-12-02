@@ -2,4 +2,5 @@
 source "https://rubygems.org"
 gem 'alexa_skills_ruby'
 gem 'sinatra'
+gem 'nokogiri'
 # gem "rails"

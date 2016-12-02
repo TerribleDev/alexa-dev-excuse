@@ -1,16 +1,26 @@
 require 'sinatra'
 require 'alexa_skills_ruby'
+require 'rubygems'
+require 'nokogiri'
+require 'open-uri'
 
 class CustomHandler < AlexaSkillsRuby::Handler
 
   on_intent("GetDeveloperExcuse") do
-    response.set_output_speech_text("Developer Excuses yo")
+    response.set_output_speech_text(get_excuse)
   end
 
 end
 get '/livecheck' do
  "hello"
 end
+
+get '/excuse' do
+  get_excuse
+end
+
+
+
 post '/' do
   content_type :json
 
@@ -23,4 +33,9 @@ post '/' do
     403
   end
 
+end
+
+def get_excuse
+  page = Nokogiri::HTML(open("http://programmingexcuses.com/"))
+  page.css("a").text
 end
