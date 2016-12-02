@@ -46,6 +46,6 @@ def get_excuse
   if rando == 1
     url = "http://www.devexcuses.com/"
   end
-  page = Nokogiri::HTML(open("http://programmingexcuses.com/"))
-  page.css("a").text
+  page = Nokogiri::HTML(open(url))
+  page.css("a")[0].text
 end
