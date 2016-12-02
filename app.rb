@@ -8,7 +8,9 @@ class CustomHandler < AlexaSkillsRuby::Handler
   end
 
 end
-
+get '/livecheck' do
+ "hello"
+end
 post '/' do
   content_type :json
 
